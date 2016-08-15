@@ -1,2 +1,18 @@
 <h3>User</h3>
 <p>Email: <%= @user.email if @user.email %></p>
+
+<%= form_for @user, html: { multipart: true } do |f| %>
+  <p>
+    <label>My Avatar</label>
+    <%= image_tag(@user.avatar.thumb.url) if @user.avatar? %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+    <% @user.gallery_photos.each do |photo| %>
+    <%= image_tag(photo.gallery.url) %>
+    <% end %>
+
+    <%= f.file_field :gallery_photos, multiple: true %>
+
+    <%= f.submit "create" %>
+  </p>
+<% end %>

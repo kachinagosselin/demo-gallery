@@ -6,6 +6,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
+
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'rmagick', '2.13.2'
+gem "mini_magick"
+gem "fog-aws"
+
 group :development, :test do
   gem 'byebug'
 end
