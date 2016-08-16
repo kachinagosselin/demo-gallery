@@ -16,3 +16,6 @@
     <%= f.submit "create" %>
   </p>
 <% end %>
+
+<%= link_to 'Download File', :controller => 'users', :action => 'download_file', :id => @user.id %>
+

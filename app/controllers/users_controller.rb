@@ -18,6 +18,14 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def download_file
+    @user = User.find(params[:id])
+    send_file(@user.avatar.path,
+      :type => 'image/png',
+      :disposition => 'attachment',
+      :url_based_filename => true)
+  end
+
   private
 
   def user_params
